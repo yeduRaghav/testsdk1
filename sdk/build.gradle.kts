@@ -1,7 +1,6 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("kotlin-kapt")
 }
 
 kotlin {
@@ -9,20 +8,14 @@ kotlin {
 }
 
 android {
-    namespace = "org.thvc.testsdk1"
+    namespace = "org.thvc.sdk"
     compileSdk = 33
 
     defaultConfig {
-        //applicationId = "org.thvc.testsdk1"
         minSdk = 28
-        targetSdk = 33
-        //versionCode = 1
-       // versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -38,17 +31,12 @@ android {
 //        sourceCompatibility = JavaVersion.VERSION_1_8
 //        targetCompatibility = JavaVersion.VERSION_1_8
 //    }
-
-
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
+//    kotlinOptions {
+//        jvmTarget = "1.8"
+//    }
 }
 
 dependencies {
-    implementation(project(":sdk"))
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.22")
     implementation("androidx.core:core-ktx:1.10.1")
+
 }
