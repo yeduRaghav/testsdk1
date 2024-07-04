@@ -13,7 +13,7 @@ android {
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "org.thvc.testsdk1"
+       // applicationId = "org.thvc.testsdk1"
         minSdk = 28
         targetSdk = 33
 
