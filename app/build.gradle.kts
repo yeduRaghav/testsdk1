@@ -13,11 +13,9 @@ android {
     compileSdk = 33
 
     defaultConfig {
-        //applicationId = "org.thvc.testsdk1"
+        applicationId = "org.thvc.testsdk1"
         minSdk = 28
         targetSdk = 33
-        //versionCode = 1
-       // versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -34,10 +32,6 @@ android {
             )
         }
     }
-//    compileOptions {
-//        sourceCompatibility = JavaVersion.VERSION_1_8
-//        targetCompatibility = JavaVersion.VERSION_1_8
-//    }
 
 
     packaging {
@@ -45,10 +39,16 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
     implementation(project(":sdk"))
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.22")
     implementation("androidx.core:core-ktx:1.10.1")
+    implementation("androidx.fragment:fragment-ktx:1.6.1")
+
 }

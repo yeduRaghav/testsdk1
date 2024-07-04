@@ -7,8 +7,9 @@ kotlin {
     jvmToolchain(17)
 }
 
+
 android {
-    namespace = "org.thvc.sdk"
+    namespace = "org.thvc.web"
     compileSdk = 33
 
     defaultConfig {
@@ -34,10 +35,7 @@ android {
 }
 
 dependencies {
-    api(project(":domain"))
     implementation(project(":domain"))
-    implementation(project(":web"))
-    implementation("androidx.fragment:fragment-ktx:1.6.1")
     implementation("androidx.core:core-ktx:1.10.1")
-
+    implementation("androidx.webkit:webkit:1.7.0")
 }
