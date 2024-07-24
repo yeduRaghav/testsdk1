@@ -27,6 +27,6 @@ jobs:
       - name: Publish AAR to GitHub Packages
         run: ./gradlew publish
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GPR_USER: ${{ secrets.GITHUB_ACTOR }}
-          GPR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+          GPR_USER: ${{ secrets.GH_ACTOR }}
+          GPR_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
