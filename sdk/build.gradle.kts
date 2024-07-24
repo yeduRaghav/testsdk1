@@ -48,7 +48,7 @@ afterEvaluate {
                 artifactId = "sdk"
                 version = "1.0.3"
 
-                artifact("$buildDir/outputs/aar/sdk-release.aar")
+                //artifact("$buildDir/outputs/aar/sdk-release.aar")
             }
         }
         repositories {
