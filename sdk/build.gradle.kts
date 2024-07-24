@@ -46,7 +46,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.yeduRaghav"
                 artifactId = "sdk"
-                version = "1.0.1"
+                version = "1.0.2"
             }
         }
 
@@ -56,7 +56,7 @@ afterEvaluate {
                 url = uri("https://maven.pkg.github.com/yeduRaghav/testsdk1")
                 credentials {
                     username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
-                    password = project.findProperty("gpr.token") as String? ?: System.getenv("TOKEN")
+                    password = project.findProperty("gpr.token") as String? ?: System.getenv("GITHUB_TOKEN")
                 }
             }
         }
