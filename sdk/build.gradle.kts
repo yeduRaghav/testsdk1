@@ -46,7 +46,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.yeduRaghav"
                 artifactId = "sdk"
-                version = "1.0.2"
+                version = "1.0.3"
 
                 artifact("$buildDir/outputs/aar/sdk-release.aar")
             }
