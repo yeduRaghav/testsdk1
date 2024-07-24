@@ -30,28 +30,3 @@ allprojects {
     }
 }
 
-
-publishing {
-    publications {
-        create<MavenPublication>("gpr") {
-            from(components["release"])
-            groupId = "com.yeduRaghav"
-            artifactId = "sdk"
-            version = "1.0.2"
-
-            artifact("$buildDir/outputs/aar/sdk-release.aar")
-        }
-    }
-    repositories {
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/yeduRaghav/testsdk1")
-            credentials {
-                username = project.findProperty("gpr.user") as String? ?: System.getenv("GPR_USER")
-                password = project.findProperty("gpr.token") as String? ?: System.getenv("GPR_TOKEN")
-            }
-        }
-    }
-}
-
-
