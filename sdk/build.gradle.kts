@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("maven-publish")
 }
 
 kotlin {
@@ -19,12 +20,9 @@ android {
     }
 
     buildTypes {
-        release {
+        getByName("release") {
             isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
     buildFeatures {
@@ -38,4 +36,29 @@ dependencies {
     implementation(project(":web"))
     implementation("androidx.fragment:fragment-ktx:1.6.1")
     implementation("androidx.core:core-ktx:1.10.1")
+}
+
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("gpr") {
+                from(components["release"])
+                groupId = "com.yeduRaghav"
+                artifactId = "sdk"
+                version = "1.0.1"
+            }
+        }
+
+        repositories {
+            maven {
+                name = "GitHubPackages"
+                url = uri("https://maven.pkg.github.com/yeduRaghav/testsdk1")
+                credentials {
+                    username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+                    password = project.findProperty("gpr.token") as String? ?: System.getenv("TOKEN")
+                }
+            }
+        }
+    }
 }

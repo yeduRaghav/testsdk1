@@ -1,3 +1,6 @@
+plugins {
+    id("maven-publish")
+}
 
 buildscript {
     repositories {
@@ -16,7 +19,6 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        maven(url = "https://tokbox.bintray.com/maven")
         maven(url = "https://plugins.gradle.org/m2/")
     }
 
